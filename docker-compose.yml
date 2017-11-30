@@ -50,6 +50,7 @@ services:
   grafana:
     image: grafana/grafana
     container_name: grafana01
+    entrypoint: "/etc/grafana/run_custom.sh" # Override entrypoint to create datasource and dashboard
     volumes:
       - ./grafana/config:/etc/grafana
       - ./grafana/data:/var/lib/grafana
@@ -61,6 +62,8 @@ services:
       - monitoring
     links:
       - prometheus
+    #command: 
+    #  - /etc/grafana/run_custom.sh
   prometheus:
     image: prom/prometheus:v1.8.0
     container_name: prometheus01
@@ -82,8 +85,3 @@ services:
 networks:
   monitoring:
     driver: bridge
-#    ipam:
-#     config:
-#       - subnet: 10.5.0.0/16
-#         gateway: 10.5.0.1
-
