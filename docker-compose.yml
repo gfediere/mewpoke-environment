@@ -15,8 +15,9 @@ services:
     networks:
       - monitoring
   mewpoke01:
-    image: openjdk
-    command: bash -c "java -jar /config/mewpoke.jar /config/config_memcache.yml"
+    container_name: mewpoke01
+    image: openjdk:alpine
+    command: "java -jar /config/mewpoke.jar /config/config_memcache.yml"
     links:
       - couchbase
     ports:
@@ -26,8 +27,9 @@ services:
     networks:
       - monitoring
   mewpoke02:
-    image: openjdk
-    command: bash -c "java -jar /config/mewpoke.jar /config/config_couchbase.yml"
+    container_name: mewpoke02
+    image: openjdk:alpine
+    command: "java -jar /config/mewpoke.jar /config/config_couchbase.yml"
     links:
       - couchbase
     ports:
@@ -37,8 +39,9 @@ services:
     networks:
       - monitoring
   mewpoke03:
-    image: openjdk
-    command: bash -c "java -jar /config/mewpoke.jar /config/config_couchbase_stats.yml"
+    container_name: mewpoke03
+    image: openjdk:alpine
+    command: "java -jar /config/mewpoke.jar /config/config_couchbase_stats.yml"
     links:
       - couchbase
     ports:
@@ -50,9 +53,10 @@ services:
   grafana:
     image: grafana/grafana
     container_name: grafana01
-    entrypoint: "/etc/grafana/run_custom.sh" # Override entrypoint to create datasource and dashboard
+    entrypoint: "/scripts/run_custom.sh" # Override entrypoint to create datasource and dashboard
     volumes:
       - ./grafana/config:/etc/grafana
+      - ./grafana/scripts:/scripts
       - ./grafana/data:/var/lib/grafana
     ports:
       - 3000:3000

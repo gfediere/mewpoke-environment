@@ -2,6 +2,10 @@
 
 Provide a docker environment to run mewpoke and get stats on grafana dashboard
 
+<p align="center">
+  <img src="./img/architecture.jpg" alt="logo"/>
+</p>
+
 ### Pre-requisites
 
 - Install docker and docker-compose
