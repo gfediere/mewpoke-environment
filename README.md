@@ -14,7 +14,7 @@ Provide a docker environment to run mewpoke and get stats on grafana dashboard
 - Couchbase: deploy cluster listening on port 8091 (login: Administrator / password)
 - Mewpoke: deploy instances listening on port 8080, 8081, 8082 
 - Prometheus: deploy instance / rules on port 9090
-- Grafana: deploy grafana with prometheus datasource, and mewpoke dashboard (login: admin / secret)
+- Grafana: deploy grafana with prometheus datasource, and mewpoke dashboard (login: admin / password)
 
 ### Run
 At the top level of the repo run:

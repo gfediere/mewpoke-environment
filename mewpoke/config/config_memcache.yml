@@ -1,9 +1,9 @@
 app:
-  tickRateInSec: 30
+  measurementPeriodInSec: 30
+  refreshDiscoveryPeriodInSec: 120
   httpServerPort: 8081
 
 discovery:
-  refreshEveryMin: 1
 #  consul:
 #    host: CONSULSRV
 #    port: 8500
@@ -11,8 +11,6 @@ discovery:
 #    readConsistency: STALE
 #    tags:
 #     - couchbase-memcached
-     #- cluster=CLUSTERNAME
-     #- bucket=BUCKETNAME
   staticDns:
     clustername: cluster01
     host: couchbase01
